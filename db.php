@@ -6,6 +6,7 @@ function getdb(){
     $password = "";
     $db = "myDB";
     $conn="";
+    
     try {
         $conn = mysqli_connect($servername, $username, $password, $db);
        
