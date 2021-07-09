@@ -1,6 +1,5 @@
 <?php
 function getdb(){
-    echo "Hello db script.";
     $servername = "localhost:3306";
     $username = "root";
     $password = "";
@@ -21,7 +20,7 @@ function getdb(){
     
                 if(mysqli_query($conn, $sql)){  
         
-                echo "Table users created successfully";  
+                echo "Table users created successfully<br/>";  
                 }else{  
                 echo "Could not create table: ". mysqli_error($conn);  
             }
@@ -30,7 +29,7 @@ function getdb(){
         }
     catch(exception $e)
         {
-        echo "Connection failed: " . $e->getMessage();
+        echo "Connection failed: <br/> " . $e->getMessage();
         }
         return $conn;
     }        

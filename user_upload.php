@@ -19,31 +19,31 @@ try{
             $temp_surname=ucfirst(strtolower($data[$r][1])); 
             $temp_email=strtolower($data[$r][2]);
             //email validation with filter
-            if (!filter_var($temp_email, FILTER_VALIDATE_EMAIL)) {
-                echo "Invalid email format";
+                if (!filter_var($temp_email, FILTER_VALIDATE_EMAIL)) {
+                    echo "Invalid email format: ";
 
-            }
-            else{
+                }
+                else{
 
-            //querry to insert data in to table
-            $sql = "INSERT INTO users(name,surname,email) VALUES ('".$temp_name."','".$temp_surname."','".$temp_email."')";  
-            //echo $sql;	
-                    
-            if(mysqli_query($conn,$sql)){
-                echo "Record Successfully Inserted.";
-            }
-            else{
-                echo "Record not inserted , ".mysqli_error($conn);
-            }
-    }
+                //querry to insert data in to table
+                $sql = "INSERT INTO users(name,surname,email) VALUES ('".$temp_name."','".$temp_surname."','".$temp_email."')";  
+                        
+                    if(mysqli_query($conn,$sql)){
+                        echo "Record Successfully Inserted.<br/>";
+                    }
+                    else{
+                        echo " Record not inserted <br/>".mysqli_error($conn);
+                    }
+                }
          }
- mysqli_close($conn);
+    mysqli_close($conn);
 
 } catch (Exception $e) {
 	echo $e->getMessage();
-} finally {
-	
-}
-			
 
+} finally {
+    if (!$holder) {
+		fclose($holder);
+	}
+}		
 ?>
