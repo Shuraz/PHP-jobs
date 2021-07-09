@@ -1,5 +1,6 @@
 <?php
-    function getdb(){
+function getdb(){
+    echo "Hello db script.";
     $servername = "localhost:3306";
     $username = "root";
     $password = "";
@@ -30,5 +31,6 @@
         {
         echo "Connection failed: " . $e->getMessage();
         }
+        return $conn;
     }        
  ?>
