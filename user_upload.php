@@ -2,9 +2,17 @@
     include 'db.php';
     $conn=getdb();
     $filename = 'users.csv';
+    $data = [];
     $temp_name=$temp_surname=$temp_email='temp';
 
 try{
+
+    $holder = fopen($filename, 'r');
+    while ($row = fgetcsv($holder, 1000, ",")) {
+        $data[] = $row;
+    }
+    print_r($data);
+
 
     $sql = "INSERT INTO users(name,surname,email) VALUES ('".$temp_name."','".$temp_surname."','".$temp_email."')";  
 	//echo $sql;	
@@ -23,7 +31,5 @@ try{
 	
 }
 			
-		
-
 
 ?>
