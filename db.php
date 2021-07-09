@@ -1,4 +1,5 @@
 <?php
+    function getdb(){
     $servername = "localhost:3306";
     $username = "root";
     $password = "";
@@ -29,8 +30,5 @@
         {
         echo "Connection failed: " . $e->getMessage();
         }
-    
-
-
-        
+    }        
  ?>
